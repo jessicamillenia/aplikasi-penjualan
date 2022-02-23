@@ -28,8 +28,8 @@ function ProductDetail() {
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} sx={{textAlign:"left"}}>   
                     <p>{details.name}</p>
-                    <p>{details.discount}</p>
-                    <p>Rp. {details.price}</p>
+                    <p style={{textDecoration: "line-through"}}>Rp. {details.price}</p>
+                    <p>Rp. {details.price * ((100 - details.discount) /100)}</p>
                     <p>Dimension: {details.dimension}</p>
                     <p>Price Unit: {details.unit}</p>
                     <Button color='warning' sx={{ width: '50%',}} variant='contained'>

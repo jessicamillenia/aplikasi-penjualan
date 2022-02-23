@@ -30,8 +30,8 @@ export default function ProductList() {
                 </Grid>
                 <Grid item key={product.id} lg={6} md={6} sm={6} xs={6} sx={{textAlign:"left"}}>   
                     <p>{product.name}</p>
-                    <p style={{textDecoration: "line-through"}}>{product.discount}</p>
-                    <p>{product.price}</p>
+                    <p style={{textDecoration: "line-through"}}>{product.price}</p>
+                    <p>{product.price * ((100 - product.discount) /100)}</p>
                 </Grid>
                 <Grid item key={product.id} lg={3} md={3} sm={3} xs={3}>   
                     <Button color='warning' sx={{ width: '100%'}} variant='contained'>

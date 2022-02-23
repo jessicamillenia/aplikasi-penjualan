@@ -14,6 +14,8 @@ export default function ReportPenjualan() {
     }, []);
 
   return (
+      <div>
+          <h1>Transaction Report</h1>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 300 }} size="small" aria-label="a dense table">
         <TableHead>
@@ -43,5 +45,6 @@ export default function ReportPenjualan() {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
