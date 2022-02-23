@@ -40,7 +40,7 @@ export default function ProductList() {
                 </Grid> 
             </Grid>
             ))}
-            <Button color='warning' sx={{ width: '90%', marginBottom:3}} variant='contained'>
+            <Button color='warning' sx={{ width: '90%', marginBottom:3}} component={Link} to={'/checkout'} variant='contained'>
                 Checkout
             </Button>
         </div>
