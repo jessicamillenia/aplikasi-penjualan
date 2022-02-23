@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+export default function ReportPenjualan() {
+    const [reports, setReports] = useState([]);
+  
+    useEffect(() => {
+        async function fetchReports() {
+            fetch('http://localhost/penjualan/report.php')
+            .then((res) => res.json())
+            .then((res) => setReports(res.message));  
+        }
+        fetchReports();
+    }, []);
 
-const rows = [
-  createData('Trx A', 159, 6.0, 24, 4.0),
-  createData('Trx B', 237, 9.0, 37, 4.3),
-  createData('Trx C', 262, 16.0, 24, 6.0),
-  createData('Trx D', 305, 3.7, 67, 4.3),
-  createData('Trx E', 356, 16.0, 49, 3.9),
-];
-
-export default function DenseTable() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 300 }} size="small" aria-label="a dense table">
@@ -27,18 +26,18 @@ export default function DenseTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {reports.map((report) => (
             <TableRow
-              key={row.name}
+              key={report.document_number}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {report.document_code} - {report.document_number}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{report.user}</TableCell>
+              <TableCell align="right">{report.total}</TableCell>
+              <TableCell align="right">{report.date}</TableCell>
+              <TableCell align="right"></TableCell>
             </TableRow>
           ))}
         </TableBody>
