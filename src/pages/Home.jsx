@@ -1,4 +1,4 @@
-import React, { createContext, Component, Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +16,6 @@ class Home extends Component {
     return (
       <Router>
           <Fragment>
-            <MyAppBar/>
             <Routes>
               <Route path="/" exact element={<ProductList/>} />
               <Route path="/login" exact element={<Login/>} />
